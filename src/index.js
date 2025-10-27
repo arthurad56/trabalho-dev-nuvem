@@ -1,5 +1,6 @@
-const express = require("express"); //importa o mÃ³dulo express neste arquivo
-const app = express(); //iniciando o express
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 //criando a rota inicial
 app.get("/", function(req,res){
@@ -32,10 +33,10 @@ app.get("/cadastro/{:nome}", function(req,res){
 })
 
 
-app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicaÃ§Ã£o na porta 4000
+app.listen(process.env.PORT ?? PORT,function(erro){  // cria a aplicaÃ§Ã£o na porta 4000
     if (erro){
         console.log("Erro ao Iniciar.");
     }else{
-        console.log("Servidor Iniciado. http://localhost:3000");
+        console.log(`Servidor Iniciado. http://localhost:${PORT}`);
     }
 })
